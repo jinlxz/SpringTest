@@ -1,10 +1,10 @@
-package soundsystem;
+package com.xzl.test;
 
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
-public class EmptyDisc implements CompactDisc {
+public class EmptyDisc {
     private String title;
     private String artist;
     private List<String> tracks;
@@ -13,7 +13,7 @@ public class EmptyDisc implements CompactDisc {
         this.artist=artist;
         this.tracks=tracks;
     }
-    @Override
+//    @Override
     public void play() {
         System.out.println("Playing"+title+"by "+artist);
         for(String track: this.tracks){

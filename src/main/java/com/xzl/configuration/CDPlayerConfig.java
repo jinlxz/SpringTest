@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import soundsystem.EmptyDisc;
 
 
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ public class CDPlayerConfig {
         return new CDPlayer(sgtPepper());
     }
 
-    @Bean
-    public EmptyDisc emptyDisc(){
-        return new EmptyDisc("hello world","xianzhou.liu", Arrays.asList("fdsas","fasdfads"));
-    }
+//    @Bean
+//    public EmptyDisc emptyDisc(){
+//        return new EmptyDisc("hello world","xianzhou.liu", Arrays.asList("fdsas","fasdfads"));
+//    }
 }

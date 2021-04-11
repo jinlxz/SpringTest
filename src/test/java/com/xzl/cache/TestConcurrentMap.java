@@ -7,18 +7,27 @@ import org.junit.Test;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 public class TestConcurrentMap extends TestCase {
     @Test
     public void testNewSharedMap(){
         ArrayList<Thread> threads=new ArrayList<>();
         ArrayList<Map> maps_x=new ArrayList<>();
+        Callable<String> callable=new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println("executing callable.");
+                return "hello";
+            }
+        };
         for(int i=0;i<10;i++){
             Thread t=new Thread(new Runnable() {
                 @Override
                 public void run() {
                     Map map=ConcurrentHashMapFactory.<String,byte[]>newSharedHashMap("audio");
 //                    System.out.println(map.hashCode());
+                    ConcurrentDataObjectFactory.newSharedDataObject(OggDecoderMock::decodeOggPacket,"xxx.ogg",map);
                     synchronized (maps_x) {
                         maps_x.add(map);
                     }
